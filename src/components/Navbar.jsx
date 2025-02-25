@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./Navbar.css";
+
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -13,7 +15,7 @@ const Navbar = () => {
       <div className="container-fluid">
         {/* Logo on the left */}
         <a className="navbar-brand fs-3 fw-light" href="/">
-        <span  style={{ color: "orange" }}>Nutri</span>
+          <span style={{ color: "orange" }}>Nutri</span>
 
           <span className="fst-italic">Kitchen</span>
         </a>
@@ -47,20 +49,28 @@ const Navbar = () => {
         {/* Search bar, Login, and Register on the right */}
         <div className="d-flex align-items-center">
           <form onSubmit={handleSearch} className="d-flex me-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button type="submit" className="btn btn-outline-dark ms-2">
-              <i className="bi bi-search"></i>
-            </button>
+
+            <div className="search-bar-withicon">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+
+              <button type="submit" className="btn btn-outline-dark ms-2">
+                <i className="bi bi-search"></i>
+              </button>
+
+            </div>
+
           </form>
+
           <a className="text-dark me-2 fw-bold" href="/login">
             LOGIN
           </a>
+
           <span className="fw-bold">/</span>
           <a className="text-dark ms-2 fw-bold" href="/register">
             REGISTER
